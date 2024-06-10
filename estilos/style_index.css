@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 0.4em 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    height: 80px;
+}
+
+nav .botao-login {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav .botao-login:hover {
+    background-color: #0056b3;
+}
+
+main {
+    padding: 2em;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    color: #007BFF;
+}
+
+p {
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+#noticias-saude {
+    margin-top: 2em;
+    text-align: left;
+}
+
+#noticias-saude h2 {
+    font-size: 1.5em;
+    color: #007BFF;
+    text-align: center;
+}
+
+.noticia {
+    margin-bottom: 1em;
+}
+
+.noticia h3 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.noticia p {
+    font-size: 1em;
+}
+
+#vacinas-pendentes {
+    margin-top: 2em;
+    text-align: left;
+}
+
+#vacinas-pendentes h2 {
+    font-size: 1.5em;
+    color: #007BFF;
+    text-align: center;
+}
+
+#lista-vacinas-pendentes {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-vacinas-pendentes li {
+    background-color: #e0f7fa;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#lista-vacinas-pendentes li .info-icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.vacina-detalhes {
+    display: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 8px;
+    margin-top: 1em;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.vacina-detalhes strong {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#noticias-saude {
+    margin-top: 2em;
+    text-align: left;
+}
+
+#noticias-saude h2 {
+    font-size: 1.5em;
+    color: #007BFF;
+    text-align: center;
+}
+
+.noticia {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1em;
+}
+
+.noticia img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 1em;
+}
+
+.noticia h3 {
+    font-size: 1.2em;
+    color: #007BFF;
+}
+
+.noticia p {
+    font-size: 1em;
+    margin-top: 0.5em;
+}
+
+.noticia a{
+    text-decoration: none;
+}
+
+.noticia > a >h3:hover{
+    color: #59a7fc;
+}

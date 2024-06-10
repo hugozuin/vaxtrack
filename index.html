@@ -3,37 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VaxTrack - Visão Geral</title>
-    <link rel="stylesheet" href="estilos/style.css">
+    <title>VaxTrack - Página Inicial</title>
+    <link rel="stylesheet" href="estilos/style_index.css">
 </head>
 <body>
     <header>
-        <h1>VaxTrack</h1>
+        <a href="index.html">
+            <img src="imagens/logo-semfundo.png" alt="VaxTrack Logo" class="logo">
+        </a>
         <nav>
-            <a href="login.html">Login</a>
+            <a href="login.html" class="botao-login">Login</a>
         </nav>
     </header>
     <main>
-        <h2>Bem-vindo ao VaxTrack</h2>
-        <section>
-            <h3>Últimas Notícias</h3>
-            <article>
-                <h4>Notícia 1</h4>
-                <p>Informações sobre vacinação...</p>
-            </article>
-            <article>
-                <h4>Notícia 2</h4>
-                <p>Informações sobre vacinação...</p>
-            </article>
+        <h1>Bem-vindo ao VaxTrack</h1>
+        <p>Vacinas em dia, saúde garantida.</p>
+        <!-- Seção de Notícias -->
+        <section id="noticias-saude">
+            <h2>Últimas Notícias sobre Vacinação</h2>
+            <div class="noticia">
+                <img src="imagens/calendario-vacinacao.jpg" alt="Calendário Nacional de Vacinação">
+                <a href="https://portal.fiocruz.br/noticia/ministerio-da-saude-divulga-o-calendario-nacional-de-vacinacao-2024" target="_blank">
+                    <h3>Calendário Nacional de Vacinação 2024</h3>
+                </a>
+                <p>O Ministério da Saúde divulgou o novo Calendário Nacional de Vacinação para 2024, oferecendo 32 vacinas gratuitamente pelo SUS.</p>
+                <p><small>Publicado em 15 de janeiro de 2024</small></p>
+            </div>
+            <div class="noticia">
+                <img src="imagens/vacina-hpv.png" alt="Vacina contra o HPV">
+                <a href="https://www.gov.br/saude/pt-br/assuntos/noticias/2024/abril/ministerio-da-saude-adota-esquema-de-vacinacao-em-dose-unica-contra-o-hpv" target="_blank">
+                    <h3>Nova Estratégia de Vacinação contra o HPV</h3>
+                </a>
+                <p>A partir de 2024, a vacina contra o HPV será administrada em dose única, buscando aumentar a adesão e a cobertura vacinal.</p>
+                <p><small>Publicado em 2 de abril de 2024</small></p>
+            </div>
+            <div class="noticia">
+                <img src="imagens/vacina-poliomelite.jpeg" alt="Vacina contra a Poliomielite">
+                <a href="https://portal.fiocruz.br/noticia/ministerio-da-saude-divulga-o-calendario-nacional-de-vacinacao-2024" target="_blank">
+                    <h3>Substituição da Vacina contra Poliomielite</h3>
+                </a>
+                <p>A vacina oral contra a poliomielite será substituída por uma versão injetável a partir de 2024, conforme novas diretrizes do Ministério da Saúde.</p>
+                <p><small>Publicado em 8 de abril de 2024</small></p>
+            </div>
         </section>
-        <section>
-            <h3>Informações Importantes</h3>
-            <p>Dados relevantes sobre a importância da vacinação...</p>
+        <section id="vacinas-pendentes">
+            <h2>Vacinas Pendentes</h2>
+            <ul id="lista-vacinas-pendentes">
+                <!-- As vacinas pendentes serão inseridas dinamicamente aqui -->
+            </ul>
         </section>
+        
     </main>
-    <footer>
-        <p>&copy; 2024 VaxTrack. Todos os direitos reservados.</p>
-    </footer>
     <script src="scripts/script.js"></script>
 </body>
 </html>
