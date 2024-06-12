@@ -53,10 +53,6 @@ p {
     text-align: left;
 }
 
-#noticias-saude h2 {
-    font-size: 1.5em;
-    color: #007BFF;
-}
 
 .noticia {
     margin-bottom: 1em;
@@ -112,9 +108,9 @@ p {
     border-radius: 8px;
     margin-top: 1em;
     position: absolute;
-    left: 0;
-    top: 100%;
-    width: 100%;
+    right: 10px;
+    top: 40px;
+    width: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
@@ -132,7 +128,6 @@ p {
 #noticias-saude h2 {
     font-size: 1.5em;
     color: #007BFF;
-    text-align: center;
 }
 
 .noticia {
@@ -166,4 +161,8 @@ p {
 
 .noticia > a >h3:hover{
     color: #59a7fc;
+}
+
+#vacinas-pendentes p{
+    text-align: center;
 }
