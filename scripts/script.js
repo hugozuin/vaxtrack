@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const dadosUsuario = { nome, idade, email, vacinasTomadas };
             localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
             exibirDadosUsuario();
+            enviarEmailVacinasPendentes(dadosUsuario);
             formPopup.style.display = "none";
         });
 
