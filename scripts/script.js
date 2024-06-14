@@ -1,5 +1,25 @@
-// Script para a página de login
+// Script para a página de registro
 document.addEventListener("DOMContentLoaded", () => {
+    const formRegister = document.getElementById("form-register");
+
+    if (formRegister) {
+        formRegister.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const nome = document.getElementById("nome").value;
+            const usuario = document.getElementById("usuario").value;
+            const email = document.getElementById("email").value;
+            const dataNascimento = document.getElementById("data-nascimento").value;
+            const senha = document.getElementById("senha").value;
+            if (nome && usuario && email && dataNascimento && senha) {
+                const userData = { nome, usuario, email, dataNascimento, senha };
+                localStorage.setItem("userData", JSON.stringify(userData));
+                window.location.href = "login.html";
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        });
+    }
+
     const formLogin = document.getElementById("form-login");
 
     if (formLogin) {
@@ -7,15 +27,28 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const usuario = document.getElementById("usuario").value;
             const senha = document.getElementById("senha").value;
-            if (usuario && senha) {
+            const storedUserData = JSON.parse(localStorage.getItem("userData"));
+            if (storedUserData && storedUserData.usuario === usuario && storedUserData.senha === senha) {
                 localStorage.setItem("usuario", usuario);
                 window.location.href = "usuario.html";
             } else {
-                alert("Por favor, preencha todos os campos.");
+                alert("Usuário ou senha incorretos.");
             }
         });
     }
 });
+
+// Função para calcular a idade a partir da data de nascimento
+function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
 
 // Script para a página do usuário
 document.addEventListener("DOMContentLoaded", () => {
@@ -65,14 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         formDados.addEventListener("submit", (e) => {
             e.preventDefault();
-            const nome = document.getElementById("nome").value;
-            const idade = document.getElementById("idade").value;
-            const email = document.getElementById("email").value;
+            const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario")) || {};
             const vacinasTomadas = Array.from(vacinasSelecionadas.children).map(vacinaTag => vacinaTag.dataset.vacina);
-            const dadosUsuario = { nome, idade, email, vacinasTomadas };
+            dadosUsuario.vacinasTomadas = vacinasTomadas;
             localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
             exibirDadosUsuario();
-            enviarEmailVacinasPendentes(dadosUsuario);
             formPopup.style.display = "none";
         });
 
@@ -121,10 +151,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function exibirDadosUsuario() {
         const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
-        if (dadosUsuario) {
-            document.getElementById("nome-usuario").innerText = dadosUsuario.nome;
-            document.getElementById("idade-usuario").innerText = dadosUsuario.idade;
-            document.getElementById("email-usuario").innerText = dadosUsuario.email;
+        const storedUserData = JSON.parse(localStorage.getItem("userData"));
+        if (storedUserData) {
+            document.getElementById("nome-usuario").innerText = storedUserData.nome;
+            document.getElementById("usuario-usuario").innerText = storedUserData.usuario;
+            document.getElementById("email-usuario").innerText = storedUserData.email;
+            const idade = calcularIdade(storedUserData.dataNascimento);
+            document.getElementById("idade-usuario").innerText = idade;
+        }
+        if (dadosUsuario && dadosUsuario.vacinasTomadas) {
             vacinasSelecionadas.innerHTML = "";
             dadosUsuario.vacinasTomadas.forEach(nomeVacina => {
                 const vacina = vacinasBrasil.find(v => v.nome === nomeVacina);
